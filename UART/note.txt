@@ -1,0 +1,5 @@
+This implementation can be improved : 
+
+1. Add reset
+2. Add Tx and Rx FIFOs to buffer inputs and outputs.
+3. Parameterize further.

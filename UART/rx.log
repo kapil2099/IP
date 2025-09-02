@@ -1,0 +1,1097 @@
+Starting UART RX Only Tests...
+VCD info: dumpfile uart_rx_tb.vcd opened for output.
+Time=0: rx_serial=1, rx_dv=0, rx_byte=0x00
+
+=== Testing UART Receiver Basic Functionality ===
+--- Test 1 of 16 ---
+Waiting for RX to receive byte 0x00...
+Sending byte 0x00 (00000000) to RX module
+  Start bit sent (0)
+Time=195000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=93975000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=104435000: rx_serial=1, rx_dv=1, rx_byte=0x00
+RX data valid asserted! Received: 0x00 (00000000)
+PASS: RX correctly received 0x00
+Time=104445000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 2 of 16 ---
+Waiting for RX to receive byte 0xff...
+Sending byte 0xff (11111111) to RX module
+  Start bit sent (0)
+Time=104955000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=115375000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=120615000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+Time=131035000: rx_serial=1, rx_dv=0, rx_byte=0x03
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+Time=141455000: rx_serial=1, rx_dv=0, rx_byte=0x07
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=151875000: rx_serial=1, rx_dv=0, rx_byte=0x0f
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+Time=162295000: rx_serial=1, rx_dv=0, rx_byte=0x1f
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=172715000: rx_serial=1, rx_dv=0, rx_byte=0x3f
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+Time=183135000: rx_serial=1, rx_dv=0, rx_byte=0x7f
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+Time=193555000: rx_serial=1, rx_dv=0, rx_byte=0xff
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=209195000: rx_serial=1, rx_dv=1, rx_byte=0xff
+RX data valid asserted! Received: 0xff (11111111)
+PASS: RX correctly received 0xff
+Time=209205000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 3 of 16 ---
+Waiting for RX to receive byte 0x55...
+Sending byte 0x55 (01010101) to RX module
+  Start bit sent (0)
+Time=209715000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=220135000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=225375000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=230555000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+Time=240975000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+Time=246215000: rx_serial=1, rx_dv=0, rx_byte=0x05
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+Time=251395000: rx_serial=0, rx_dv=0, rx_byte=0x05
+State : Data, 1 bit received
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+Time=261815000: rx_serial=1, rx_dv=0, rx_byte=0x05
+State : Data, 1 bit received
+Time=267055000: rx_serial=1, rx_dv=0, rx_byte=0x15
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+Time=272235000: rx_serial=0, rx_dv=0, rx_byte=0x15
+State : Data, 1 bit received
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+Time=282655000: rx_serial=1, rx_dv=0, rx_byte=0x15
+State : Data, 1 bit received
+Time=287895000: rx_serial=1, rx_dv=0, rx_byte=0x55
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+Time=293075000: rx_serial=0, rx_dv=0, rx_byte=0x55
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=303495000: rx_serial=1, rx_dv=0, rx_byte=0x55
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=313955000: rx_serial=1, rx_dv=1, rx_byte=0x55
+RX data valid asserted! Received: 0x55 (01010101)
+PASS: RX correctly received 0x55
+Time=313965000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 4 of 16 ---
+Waiting for RX to receive byte 0xaa...
+Sending byte 0xaa (10101010) to RX module
+  Start bit sent (0)
+Time=314475000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=335315000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=340555000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=345735000: rx_serial=0, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+Time=356155000: rx_serial=1, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+Time=361395000: rx_serial=1, rx_dv=0, rx_byte=0x0a
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+Time=366575000: rx_serial=0, rx_dv=0, rx_byte=0x0a
+State : Data, 1 bit received
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+Time=376995000: rx_serial=1, rx_dv=0, rx_byte=0x0a
+State : Data, 1 bit received
+Time=382235000: rx_serial=1, rx_dv=0, rx_byte=0x2a
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=387415000: rx_serial=0, rx_dv=0, rx_byte=0x2a
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=397835000: rx_serial=1, rx_dv=0, rx_byte=0x2a
+State : Data, 1 bit received
+Time=403075000: rx_serial=1, rx_dv=0, rx_byte=0xaa
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=418715000: rx_serial=1, rx_dv=1, rx_byte=0xaa
+RX data valid asserted! Received: 0xaa (10101010)
+PASS: RX correctly received 0xaa
+Time=418725000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 5 of 16 ---
+Waiting for RX to receive byte 0x0f...
+Sending byte 0x0f (00001111) to RX module
+  Start bit sent (0)
+Time=419235000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=429655000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=434895000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+Time=445315000: rx_serial=1, rx_dv=0, rx_byte=0x03
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+Time=455735000: rx_serial=1, rx_dv=0, rx_byte=0x07
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=466155000: rx_serial=1, rx_dv=0, rx_byte=0x0f
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+Time=471335000: rx_serial=0, rx_dv=0, rx_byte=0x0f
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=513015000: rx_serial=1, rx_dv=0, rx_byte=0x0f
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=523475000: rx_serial=1, rx_dv=1, rx_byte=0x0f
+RX data valid asserted! Received: 0x0f (00001111)
+PASS: RX correctly received 0x0f
+Time=523485000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 6 of 16 ---
+Waiting for RX to receive byte 0xf0...
+Sending byte 0xf0 (11110000) to RX module
+  Start bit sent (0)
+Time=523995000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+Time=576095000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=581335000: rx_serial=1, rx_dv=0, rx_byte=0x10
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=591755000: rx_serial=1, rx_dv=0, rx_byte=0x30
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+Time=602175000: rx_serial=1, rx_dv=0, rx_byte=0x70
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+Time=612595000: rx_serial=1, rx_dv=0, rx_byte=0xf0
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=628235000: rx_serial=1, rx_dv=1, rx_byte=0xf0
+RX data valid asserted! Received: 0xf0 (11110000)
+PASS: RX correctly received 0xf0
+Time=628245000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 7 of 16 ---
+Waiting for RX to receive byte 0x3c...
+Sending byte 0x3c (00111100) to RX module
+  Start bit sent (0)
+Time=628755000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+Time=660015000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=665255000: rx_serial=1, rx_dv=0, rx_byte=0x04
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=675675000: rx_serial=1, rx_dv=0, rx_byte=0x0c
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+Time=686095000: rx_serial=1, rx_dv=0, rx_byte=0x1c
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=696515000: rx_serial=1, rx_dv=0, rx_byte=0x3c
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=701695000: rx_serial=0, rx_dv=0, rx_byte=0x3c
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=722535000: rx_serial=1, rx_dv=0, rx_byte=0x3c
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=732995000: rx_serial=1, rx_dv=1, rx_byte=0x3c
+RX data valid asserted! Received: 0x3c (00111100)
+PASS: RX correctly received 0x3c
+Time=733005000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 8 of 16 ---
+Waiting for RX to receive byte 0xc3...
+Sending byte 0xc3 (11000011) to RX module
+  Start bit sent (0)
+Time=733515000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=743935000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=749175000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+Time=759595000: rx_serial=1, rx_dv=0, rx_byte=0x03
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=764775000: rx_serial=0, rx_dv=0, rx_byte=0x03
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+Time=806455000: rx_serial=1, rx_dv=0, rx_byte=0x03
+State : Data, 1 bit received
+Time=811695000: rx_serial=1, rx_dv=0, rx_byte=0x43
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+Time=822115000: rx_serial=1, rx_dv=0, rx_byte=0xc3
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=837755000: rx_serial=1, rx_dv=1, rx_byte=0xc3
+RX data valid asserted! Received: 0xc3 (11000011)
+PASS: RX correctly received 0xc3
+Time=837765000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 9 of 16 ---
+Waiting for RX to receive byte 0x01...
+Sending byte 0x01 (00000001) to RX module
+  Start bit sent (0)
+Time=838275000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=848695000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=853935000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=859115000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=932055000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=942515000: rx_serial=1, rx_dv=1, rx_byte=0x01
+RX data valid asserted! Received: 0x01 (00000001)
+PASS: RX correctly received 0x01
+Time=942525000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 10 of 16 ---
+Waiting for RX to receive byte 0x80...
+Sending byte 0x80 (10000000) to RX module
+  Start bit sent (0)
+Time=943035000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=1026395000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1031635000: rx_serial=1, rx_dv=0, rx_byte=0x80
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1047275000: rx_serial=1, rx_dv=1, rx_byte=0x80
+RX data valid asserted! Received: 0x80 (10000000)
+PASS: RX correctly received 0x80
+Time=1047285000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 11 of 16 ---
+Waiting for RX to receive byte 0x7f...
+Sending byte 0x7f (01111111) to RX module
+  Start bit sent (0)
+Time=1047795000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=1058215000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1063455000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+Time=1073875000: rx_serial=1, rx_dv=0, rx_byte=0x03
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+Time=1084295000: rx_serial=1, rx_dv=0, rx_byte=0x07
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=1094715000: rx_serial=1, rx_dv=0, rx_byte=0x0f
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+Time=1105135000: rx_serial=1, rx_dv=0, rx_byte=0x1f
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=1115555000: rx_serial=1, rx_dv=0, rx_byte=0x3f
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+Time=1125975000: rx_serial=1, rx_dv=0, rx_byte=0x7f
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+Time=1131155000: rx_serial=0, rx_dv=0, rx_byte=0x7f
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=1141575000: rx_serial=1, rx_dv=0, rx_byte=0x7f
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1152035000: rx_serial=1, rx_dv=1, rx_byte=0x7f
+RX data valid asserted! Received: 0x7f (01111111)
+PASS: RX correctly received 0x7f
+Time=1152045000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 12 of 16 ---
+Waiting for RX to receive byte 0xfe...
+Sending byte 0xfe (11111110) to RX module
+  Start bit sent (0)
+Time=1152555000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=1173395000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1178635000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+Time=1189055000: rx_serial=1, rx_dv=0, rx_byte=0x06
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=1199475000: rx_serial=1, rx_dv=0, rx_byte=0x0e
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+Time=1209895000: rx_serial=1, rx_dv=0, rx_byte=0x1e
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=1220315000: rx_serial=1, rx_dv=0, rx_byte=0x3e
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+Time=1230735000: rx_serial=1, rx_dv=0, rx_byte=0x7e
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+Time=1241155000: rx_serial=1, rx_dv=0, rx_byte=0xfe
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1256795000: rx_serial=1, rx_dv=1, rx_byte=0xfe
+RX data valid asserted! Received: 0xfe (11111110)
+PASS: RX correctly received 0xfe
+Time=1256805000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 13 of 16 ---
+Waiting for RX to receive byte 0x33...
+Sending byte 0x33 (00110011) to RX module
+  Start bit sent (0)
+Time=1257315000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=1267735000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1272975000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+Time=1283395000: rx_serial=1, rx_dv=0, rx_byte=0x03
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=1288575000: rx_serial=0, rx_dv=0, rx_byte=0x03
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+Time=1309415000: rx_serial=1, rx_dv=0, rx_byte=0x03
+State : Data, 1 bit received
+Time=1314655000: rx_serial=1, rx_dv=0, rx_byte=0x13
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=1325075000: rx_serial=1, rx_dv=0, rx_byte=0x33
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=1330255000: rx_serial=0, rx_dv=0, rx_byte=0x33
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=1351095000: rx_serial=1, rx_dv=0, rx_byte=0x33
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1361555000: rx_serial=1, rx_dv=1, rx_byte=0x33
+RX data valid asserted! Received: 0x33 (00110011)
+PASS: RX correctly received 0x33
+Time=1361565000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 14 of 16 ---
+Waiting for RX to receive byte 0xcc...
+Sending byte 0xcc (11001100) to RX module
+  Start bit sent (0)
+Time=1362075000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+Time=1393335000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1398575000: rx_serial=1, rx_dv=0, rx_byte=0x04
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=1408995000: rx_serial=1, rx_dv=0, rx_byte=0x0c
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+Time=1414175000: rx_serial=0, rx_dv=0, rx_byte=0x0c
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+Time=1435015000: rx_serial=1, rx_dv=0, rx_byte=0x0c
+State : Data, 1 bit received
+Time=1440255000: rx_serial=1, rx_dv=0, rx_byte=0x4c
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+Time=1450675000: rx_serial=1, rx_dv=0, rx_byte=0xcc
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1466315000: rx_serial=1, rx_dv=1, rx_byte=0xcc
+RX data valid asserted! Received: 0xcc (11001100)
+PASS: RX correctly received 0xcc
+Time=1466325000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 15 of 16 ---
+Waiting for RX to receive byte 0x5a...
+Sending byte 0x5a (01011010) to RX module
+  Start bit sent (0)
+Time=1466835000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=1487675000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1492915000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=1498095000: rx_serial=0, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+Time=1508515000: rx_serial=1, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+Time=1513755000: rx_serial=1, rx_dv=0, rx_byte=0x0a
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+Time=1524175000: rx_serial=1, rx_dv=0, rx_byte=0x1a
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+Time=1529355000: rx_serial=0, rx_dv=0, rx_byte=0x1a
+State : Data, 1 bit received
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+Time=1539775000: rx_serial=1, rx_dv=0, rx_byte=0x1a
+State : Data, 1 bit received
+Time=1545015000: rx_serial=1, rx_dv=0, rx_byte=0x5a
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+Time=1550195000: rx_serial=0, rx_dv=0, rx_byte=0x5a
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=1560615000: rx_serial=1, rx_dv=0, rx_byte=0x5a
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1571075000: rx_serial=1, rx_dv=1, rx_byte=0x5a
+RX data valid asserted! Received: 0x5a (01011010)
+PASS: RX correctly received 0x5a
+Time=1571085000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+--- Test 16 of 16 ---
+Waiting for RX to receive byte 0xa5...
+Sending byte 0xa5 (10100101) to RX module
+  Start bit sent (0)
+Time=1571595000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=1582015000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1587255000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=1592435000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+Time=1602855000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+Time=1608095000: rx_serial=1, rx_dv=0, rx_byte=0x05
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+Time=1613275000: rx_serial=0, rx_dv=0, rx_byte=0x05
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+Time=1634115000: rx_serial=1, rx_dv=0, rx_byte=0x05
+State : Data, 1 bit received
+Time=1639355000: rx_serial=1, rx_dv=0, rx_byte=0x25
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=1644535000: rx_serial=0, rx_dv=0, rx_byte=0x25
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=1654955000: rx_serial=1, rx_dv=0, rx_byte=0x25
+State : Data, 1 bit received
+Time=1660195000: rx_serial=1, rx_dv=0, rx_byte=0xa5
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1675835000: rx_serial=1, rx_dv=1, rx_byte=0xa5
+RX data valid asserted! Received: 0xa5 (10100101)
+PASS: RX correctly received 0xa5
+Time=1675845000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+
+=== Testing Edge Cases ===
+Testing back-to-back byte reception...
+Waiting for RX to receive byte 0xa0...
+Sending byte 0xa0 (10100000) to RX module
+  Start bit sent (0)
+Time=1676355000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+Time=1738875000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1744115000: rx_serial=1, rx_dv=0, rx_byte=0x20
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=1749295000: rx_serial=0, rx_dv=0, rx_byte=0x20
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=1759715000: rx_serial=1, rx_dv=0, rx_byte=0x20
+State : Data, 1 bit received
+Time=1764955000: rx_serial=1, rx_dv=0, rx_byte=0xa0
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1780595000: rx_serial=1, rx_dv=1, rx_byte=0xa0
+RX data valid asserted! Received: 0xa0 (10100000)
+PASS: RX correctly received 0xa0
+Time=1780605000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0xa1...
+Sending byte 0xa1 (10100001) to RX module
+  Start bit sent (0)
+Time=1781115000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=1791535000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1796775000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=1801955000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+Time=1843635000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+Time=1848875000: rx_serial=1, rx_dv=0, rx_byte=0x21
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=1854055000: rx_serial=0, rx_dv=0, rx_byte=0x21
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=1864475000: rx_serial=1, rx_dv=0, rx_byte=0x21
+State : Data, 1 bit received
+Time=1869715000: rx_serial=1, rx_dv=0, rx_byte=0xa1
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1885355000: rx_serial=1, rx_dv=1, rx_byte=0xa1
+RX data valid asserted! Received: 0xa1 (10100001)
+PASS: RX correctly received 0xa1
+Time=1885365000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0xa2...
+Sending byte 0xa2 (10100010) to RX module
+  Start bit sent (0)
+Time=1885875000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=1906715000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=1911955000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=1917135000: rx_serial=0, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+Time=1948395000: rx_serial=1, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+Time=1953635000: rx_serial=1, rx_dv=0, rx_byte=0x22
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=1958815000: rx_serial=0, rx_dv=0, rx_byte=0x22
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=1969235000: rx_serial=1, rx_dv=0, rx_byte=0x22
+State : Data, 1 bit received
+Time=1974475000: rx_serial=1, rx_dv=0, rx_byte=0xa2
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=1990115000: rx_serial=1, rx_dv=1, rx_byte=0xa2
+RX data valid asserted! Received: 0xa2 (10100010)
+PASS: RX correctly received 0xa2
+Time=1990125000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Testing common ASCII characters...
+Waiting for RX to receive byte 0x41...
+Sending byte 0x41 (01000001) to RX module
+  Start bit sent (0)
+Time=1990635000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=2001055000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2006295000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=2011475000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+Time=2063575000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+Time=2068815000: rx_serial=1, rx_dv=0, rx_byte=0x41
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+Time=2073995000: rx_serial=0, rx_dv=0, rx_byte=0x41
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2084415000: rx_serial=1, rx_dv=0, rx_byte=0x41
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2094875000: rx_serial=1, rx_dv=1, rx_byte=0x41
+RX data valid asserted! Received: 0x41 (01000001)
+PASS: RX correctly received 0x41
+Time=2094885000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0x42...
+Sending byte 0x42 (01000010) to RX module
+  Start bit sent (0)
+Time=2095395000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=2116235000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2121475000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=2126655000: rx_serial=0, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (1) - bit value from byte_to_send[6]
+Time=2168335000: rx_serial=1, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+Time=2173575000: rx_serial=1, rx_dv=0, rx_byte=0x42
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+Time=2178755000: rx_serial=0, rx_dv=0, rx_byte=0x42
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2189175000: rx_serial=1, rx_dv=0, rx_byte=0x42
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2199635000: rx_serial=1, rx_dv=1, rx_byte=0x42
+RX data valid asserted! Received: 0x42 (01000010)
+PASS: RX correctly received 0x42
+Time=2199645000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0x30...
+Sending byte 0x30 (00110000) to RX module
+  Start bit sent (0)
+Time=2200155000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+Time=2252255000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2257495000: rx_serial=1, rx_dv=0, rx_byte=0x10
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=2267915000: rx_serial=1, rx_dv=0, rx_byte=0x30
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=2273095000: rx_serial=0, rx_dv=0, rx_byte=0x30
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2293935000: rx_serial=1, rx_dv=0, rx_byte=0x30
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2304395000: rx_serial=1, rx_dv=1, rx_byte=0x30
+RX data valid asserted! Received: 0x30 (00110000)
+PASS: RX correctly received 0x30
+Time=2304405000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0x39...
+Sending byte 0x39 (00111001) to RX module
+  Start bit sent (0)
+Time=2304915000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=2315335000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2320575000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=2325755000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+Time=2346595000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+Time=2351835000: rx_serial=1, rx_dv=0, rx_byte=0x09
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+Time=2362255000: rx_serial=1, rx_dv=0, rx_byte=0x19
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+Time=2372675000: rx_serial=1, rx_dv=0, rx_byte=0x39
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=2377855000: rx_serial=0, rx_dv=0, rx_byte=0x39
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2398695000: rx_serial=1, rx_dv=0, rx_byte=0x39
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2409155000: rx_serial=1, rx_dv=1, rx_byte=0x39
+RX data valid asserted! Received: 0x39 (00111001)
+PASS: RX correctly received 0x39
+Time=2409165000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0x20...
+Sending byte 0x20 (00100000) to RX module
+  Start bit sent (0)
+Time=2409675000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+State : Data, 1 bit received
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+State : Data, 1 bit received
+  Data bit 5 sent (1) - bit value from byte_to_send[5]
+Time=2472195000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2477435000: rx_serial=1, rx_dv=0, rx_byte=0x20
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+Time=2482615000: rx_serial=0, rx_dv=0, rx_byte=0x20
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2503455000: rx_serial=1, rx_dv=0, rx_byte=0x20
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2513915000: rx_serial=1, rx_dv=1, rx_byte=0x20
+RX data valid asserted! Received: 0x20 (00100000)
+PASS: RX correctly received 0x20
+Time=2513925000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0x0d...
+Sending byte 0x0d (00001101) to RX module
+  Start bit sent (0)
+Time=2514435000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (1) - bit value from byte_to_send[0]
+Time=2524855000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2530095000: rx_serial=1, rx_dv=0, rx_byte=0x01
+  Data bit 1 sent (0) - bit value from byte_to_send[1]
+Time=2535275000: rx_serial=0, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+Time=2545695000: rx_serial=1, rx_dv=0, rx_byte=0x01
+State : Data, 1 bit received
+Time=2550935000: rx_serial=1, rx_dv=0, rx_byte=0x05
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+State : Data, 1 bit received
+Time=2561355000: rx_serial=1, rx_dv=0, rx_byte=0x0d
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+Time=2566535000: rx_serial=0, rx_dv=0, rx_byte=0x0d
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2608215000: rx_serial=1, rx_dv=0, rx_byte=0x0d
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2618675000: rx_serial=1, rx_dv=1, rx_byte=0x0d
+RX data valid asserted! Received: 0x0d (00001101)
+PASS: RX correctly received 0x0d
+Time=2618685000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Waiting for RX to receive byte 0x0a...
+Sending byte 0x0a (00001010) to RX module
+  Start bit sent (0)
+Time=2619195000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=2640035000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2645275000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (0) - bit value from byte_to_send[2]
+Time=2650455000: rx_serial=0, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+  Data bit 3 sent (1) - bit value from byte_to_send[3]
+Time=2660875000: rx_serial=1, rx_dv=0, rx_byte=0x02
+State : Data, 1 bit received
+Time=2666115000: rx_serial=1, rx_dv=0, rx_byte=0x0a
+  Data bit 4 sent (0) - bit value from byte_to_send[4]
+Time=2671295000: rx_serial=0, rx_dv=0, rx_byte=0x0a
+State : Data, 1 bit received
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (0) - bit value from byte_to_send[7]
+State : Data, 1 bit received
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+Time=2712975000: rx_serial=1, rx_dv=0, rx_byte=0x0a
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2723435000: rx_serial=1, rx_dv=1, rx_byte=0x0a
+RX data valid asserted! Received: 0x0a (00001010)
+PASS: RX correctly received 0x0a
+Time=2723445000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+Testing with extended idle periods...
+Waiting for RX to receive byte 0x96...
+Sending byte 0x96 (10010110) to RX module
+  Start bit sent (0)
+Time=2828155000: rx_serial=0, rx_dv=0, rx_byte=0x00
+State : Idle, start bit detected
+  Data bit 0 sent (0) - bit value from byte_to_send[0]
+State : Data, 1 bit received
+  Data bit 1 sent (1) - bit value from byte_to_send[1]
+Time=2848995000: rx_serial=1, rx_dv=0, rx_byte=0x00
+State : Data, 1 bit received
+Time=2854225000: rx_serial=1, rx_dv=0, rx_byte=0x02
+  Data bit 2 sent (1) - bit value from byte_to_send[2]
+State : Data, 1 bit received
+Time=2864645000: rx_serial=1, rx_dv=0, rx_byte=0x06
+  Data bit 3 sent (0) - bit value from byte_to_send[3]
+Time=2869835000: rx_serial=0, rx_dv=0, rx_byte=0x06
+State : Data, 1 bit received
+  Data bit 4 sent (1) - bit value from byte_to_send[4]
+Time=2880255000: rx_serial=1, rx_dv=0, rx_byte=0x06
+State : Data, 1 bit received
+Time=2885485000: rx_serial=1, rx_dv=0, rx_byte=0x16
+  Data bit 5 sent (0) - bit value from byte_to_send[5]
+Time=2890675000: rx_serial=0, rx_dv=0, rx_byte=0x16
+State : Data, 1 bit received
+  Data bit 6 sent (0) - bit value from byte_to_send[6]
+State : Data, 1 bit received
+  Data bit 7 sent (1) - bit value from byte_to_send[7]
+Time=2911515000: rx_serial=1, rx_dv=0, rx_byte=0x16
+State : Data, 1 bit received
+Time=2916745000: rx_serial=1, rx_dv=0, rx_byte=0x96
+State : Data, all bits received, going to Stop
+  Stop bit sent (1)
+State : STOP, valid stop bit, going to Cleanup.
+Complete byte transmission finished
+
+Time=2932385000: rx_serial=1, rx_dv=1, rx_byte=0x96
+RX data valid asserted! Received: 0x96 (10010110)
+PASS: RX correctly received 0x96
+Time=2932395000: rx_serial=1, rx_dv=0, rx_byte=0x00
+RX data valid deasserted
+
+
+=== RX Test Results ===
+Total Tests: 27
+Passed: 27
+Failed: 0
+*** ALL RX TESTS PASSED! ***
+Your UART receiver implementation is working correctly!
+uart_rx_tb.v:208: $finish called at 2932905000 (10ps)

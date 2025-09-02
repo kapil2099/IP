@@ -1,0 +1,15 @@
+Starting UART Tests...
+VCD info: dumpfile uart_tb.vcd opened for output.
+
+=== Testing UART Transmitter ===
+Waiting for TX to transmit 0x55
+i_tx_byte = 01010101
+EXITING IDLE STATE
+EXITING START BIT STATE
+Exiting DATA TRANSFER STATE
+PASS: TX correctly transmitted 0x55
+Waiting for TX to transmit 0xaa
+exiting STOP BIT STATE
+CLEANUP STATE
+ERROR: Test timeout!
+uart_tb.v:263: $finish called at 5000000000 (10ps)
