@@ -19,7 +19,7 @@ module uart_tx #(
     // Internal registers
     reg [2:0] r_sm_main     = s_IDLE;
     reg [11:0] r_clk_count   = 0;
-    reg [3:0] r_bit_count   = 0;
+    reg [3:0] r_bit_index   = 0;
     reg [7:0] r_tx_data     = 0;
     reg       r_tx_done     = 0;
     reg       r_tx_active   = 0;
@@ -53,7 +53,7 @@ module uart_tx #(
                 if (i_tx_dv) begin
                     r_tx_data <= i_tx_byte;  // Load data to transmit
                     $display("i_tx_byte = %8b", i_tx_byte);
-                    r_bit_count <= 0;         // Reset bit index
+                    r_bit_index <= 0;         // Reset bit index
                     r_clk_count <= 0;         // Reset clock counter
                     r_tx_active <= 1;         // Set active flag
                     o_tx_serial <= 1'b0;      // Start bit (low)
@@ -63,7 +63,7 @@ module uart_tx #(
                 end
                 else begin
                     r_tx_data <= 0;
-                    r_bit_count <= 0;
+                    r_bit_index <= 0;
                     r_clk_count <= 0;
                     r_tx_active <= 0;
                     o_tx_serial <= 1;
@@ -94,26 +94,31 @@ module uart_tx #(
                 //count CLKS_PER_BIT cycles for each bit, 
                 //update bit count after CLKS_PER_BIT cycles
                 //if bit count = 8, reset bit count, move to S_TX_STOP
-                if(r_bit_count == 8) begin
-                    //assert();
-                    r_bit_count <= 0;
-                    r_clk_count <= 0;
-                    r_sm_main <= s_TX_STOP;
-                    o_tx_serial <= 1'b0;
-                    $display("Exiting DATA TRANSFER STATE");
-                end
-                else begin
+               
+               
                     if(r_clk_count == (CLKS_PER_BIT - 1)) begin
-                        r_bit_count <= r_bit_count + 1;
-                        r_clk_count <= 0;
+                        
+                        if(r_bit_index == 7) begin
+                            //assert();
+                            r_bit_index <= 0;
+                            r_clk_count <= 0;
+                            r_sm_main <= s_TX_STOP;
+                            o_tx_serial <= 1'b0;
+                            $display("Exiting DATA TRANSFER STATE");
+                        end
+                        else begin
+                            r_bit_index <= r_bit_index + 1;
+                            r_clk_count <= 0;
+                            r_sm_main <= s_TX_DATA;
+                        end
                         
                     end
                     else begin
                         r_clk_count <= r_clk_count + 1;
-                        o_tx_serial <= r_tx_data[r_bit_count];
+                        o_tx_serial <= r_tx_data[r_bit_index];
+                        r_sm_main <= s_TX_DATA;
                     end
-                    r_sm_main <= s_TX_DATA;
-                end
+                    
 
             end
             s_TX_STOP: begin

@@ -17,7 +17,7 @@ module uart_rx #(
     // Internal registers
     reg [2:0] r_sm_main     = s_IDLE;
     reg [11:0] r_clk_count   = 0;
-    reg [3:0] r_bit_count   = 0;
+    reg [3:0] r_bit_index   = 0;
     reg [7:0] r_rx_byte     = 0;
     reg       r_rx_dv       = 0;
     
@@ -44,7 +44,7 @@ module uart_rx #(
         
         // r_sm_main <= s_IDLE;
         // r_clk_count <= 0;
-        // r_bit_count <= 0;
+        // r_bit_index <= 0;
         // r_rx_byte <= 0;
         // r_rx_dv <= 0;
         case(r_sm_main)
@@ -57,13 +57,13 @@ module uart_rx #(
                 end
                 else r_sm_main <= s_IDLE;
                 r_clk_count <= 0;
-                r_bit_count <= 0;
+                r_bit_index <= 0;
                 r_rx_byte <= 0;
                 r_rx_dv <= 0;
             end
             s_RX_START : begin
                 //count upto 1.5 * CLKS_PER_BIT
-                if(r_clk_count == (0.5 * CLKS_PER_BIT - 1))
+                if(r_clk_count == (CLKS_PER_BIT/2 - 1))
                 begin
                     r_clk_count <= 0;
                     r_sm_main <= s_RX_DATA;
@@ -72,7 +72,7 @@ module uart_rx #(
                     r_clk_count <= r_clk_count + 1;
                     r_sm_main <= s_RX_START;
                 end
-                r_bit_count <= 0;
+                r_bit_index <= 0;
                 r_rx_byte <= 0;
                 r_rx_dv <= 0;
             end
@@ -80,26 +80,30 @@ module uart_rx #(
                 
                 //when bit index = 7, move to s_RX_STOP
                 // read 1 bit , count CLKS_PER_BIT, keep reading till bit_index = 7
-                if(r_bit_count == 8) 
+                
+                if(r_clk_count == CLKS_PER_BIT - 1)
                 begin
-                    r_sm_main <= s_RX_STOP;
-                    r_bit_count <= 0;
-                    $display("State : Data, all bits received, going to Stop");
-                end
-                else if(r_clk_count == CLKS_PER_BIT - 1)
-                begin
-                    r_sm_main <= s_RX_DATA;
+                    if(r_bit_index == 7) 
+                    begin
+                        r_rx_byte[r_bit_index] <= r_rx_data;
+                        r_sm_main <= s_RX_STOP;
+                        r_bit_index <= 0;
+                        $display("State : Data, all bits received, going to Stop");
+                    end
+                    else begin
+                        r_sm_main <= s_RX_DATA;
+                        r_rx_byte[r_bit_index] <= r_rx_data;
+                        r_bit_index <= r_bit_index + 1;
+                        $display("State : Data, 1 bit received");
+                    end
                     r_clk_count <= 0;
-                    r_rx_byte[r_bit_count] <= r_rx_data;
-                    r_bit_count <= r_bit_count + 1;
-                    r_sm_main <= s_RX_DATA;
-                    $display("State : Data, 1 bit received");
                 end
                 else 
                 begin
                     r_clk_count <= r_clk_count + 1;
                     r_sm_main <= s_RX_DATA;
                 end
+                r_rx_dv <= 0;
                  
             end
             s_RX_STOP : begin
@@ -117,7 +121,7 @@ module uart_rx #(
                             r_sm_main <= s_IDLE;
                             r_clk_count <= 0;
                             r_rx_byte <= 0;
-                            r_bit_count <= 0;
+                            r_bit_index <= 0;
                             r_rx_dv <= 0;
                         end
                     end
