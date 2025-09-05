@@ -32,20 +32,6 @@ module uart_tx #(
     // 4. Serial output generation
     
     always @(posedge i_clk) begin
-        // Your implementation goes here
-        
-        //state transition logic
-        
-        
-        // r_sm_main <= s_IDLE;
-        // r_clk_count <= 0;
-        // r_bit_index <= 0;
-        // r_tx_data <= 0;
-        // r_tx_done <= 0;
-        // r_tx_active <= 0;
-        // o_tx_serial <= 1'b1;  // Idle high
-
-
         case(r_sm_main)
             s_IDLE :  begin
                 // Wait for data valid signal
@@ -69,7 +55,6 @@ module uart_tx #(
                     o_tx_serial <= 1;
                     r_sm_main <= s_IDLE;
                 end
-
             end
             s_TX_START :  begin
                 //count cycles CLKS_PER_BIT for start bit, reset clock counter when complete
@@ -96,29 +81,29 @@ module uart_tx #(
                 //if bit count = 8, reset bit count, move to S_TX_STOP
                
                
-                    if(r_clk_count == (CLKS_PER_BIT - 1)) begin
-                        
-                        if(r_bit_index == 7) begin
-                            //assert();
-                            r_bit_index <= 0;
-                            r_clk_count <= 0;
-                            r_sm_main <= s_TX_STOP;
-                            o_tx_serial <= 1'b0;
-                            $display("Exiting DATA TRANSFER STATE");
-                        end
-                        else begin
-                            r_bit_index <= r_bit_index + 1;
-                            r_clk_count <= 0;
-                            r_sm_main <= s_TX_DATA;
-                        end
-                        
+                if(r_clk_count == (CLKS_PER_BIT - 1)) begin
+                    
+                    if(r_bit_index == 7) begin
+                        //assert();
+                        r_bit_index <= 0;
+                        r_clk_count <= 0;
+                        r_sm_main <= s_TX_STOP;
+                        o_tx_serial <= 1'b0;
+                        $display("Exiting DATA TRANSFER STATE");
                     end
                     else begin
-                        r_clk_count <= r_clk_count + 1;
-                        o_tx_serial <= r_tx_data[r_bit_index];
+                        r_bit_index <= r_bit_index + 1;
+                        r_clk_count <= 0;
                         r_sm_main <= s_TX_DATA;
                     end
                     
+                end
+                else begin
+                    r_clk_count <= r_clk_count + 1;
+                    o_tx_serial <= r_tx_data[r_bit_index];
+                    r_sm_main <= s_TX_DATA;
+                end
+                
 
             end
             s_TX_STOP: begin
